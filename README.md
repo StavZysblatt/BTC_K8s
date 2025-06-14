@@ -43,6 +43,11 @@ This project demonstrates deploying a Bitcoin price tracking web service and a h
 - [Minikube](https://minikube.sigs.k8s.io/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 
+## Testing 
+curl http://localhost/service-a/price
+curl http://localhost/service-b/health
+
+
 ### Clone and Run
 
 ```bash
@@ -52,8 +57,4 @@ minikube start
 minikube tunnel
 kubectl apply -f k8s/
 
-Testing
-
-curl http://localhost/service-a/price
-curl http://localhost/service-b/health
 
