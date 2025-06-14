@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a
+  namespace: prod-servicea
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: service-a
+  template:
+    metadata:
+      labels:
+        app: service-a
+    spec:
+      containers:
+        - name: service-a
+          image: service-a:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+          env:
+            - name: TOKEN_METRICS_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: tokenmetrics-api-key
+                  key: TOKEN_METRICS_API_KEY

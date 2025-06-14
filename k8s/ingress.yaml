@@ -1,0 +1,43 @@
+    # Ingress for Service A
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dev-ingress-a
+  namespace: dev-servicea
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /service-a(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: service-a
+                port:
+                  number: 80
+
+---
+
+# Ingress for Service B
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dev-ingress-b
+  namespace: dev-serviceb
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: //service-b(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: service-b
+                port:
+                  number: 80
