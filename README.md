@@ -43,7 +43,7 @@ This project demonstrates deploying a Bitcoin price tracking web service and a h
 - [Minikube](https://minikube.sigs.k8s.io/)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 
-##🐳 Build Docker Images Inside Minikube
+## 🐳 Build Docker Images Inside Minikube
 
 eval $(minikube docker-env)
 
