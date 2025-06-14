@@ -51,3 +51,9 @@ cd BTC_K8s
 minikube start
 minikube tunnel
 kubectl apply -f k8s/
+
+Testing
+
+curl http://localhost/service-a/price
+curl http://localhost/service-b/health
+
