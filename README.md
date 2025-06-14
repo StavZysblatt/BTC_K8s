@@ -48,10 +48,12 @@ This project demonstrates deploying a Bitcoin price tracking web service and a h
 eval $(minikube docker-env)
 
 docker build -t service-a:latest ./service-a
+
 docker build -t service-b:latest ./service-b
 
 ## Testing 
 curl http://localhost/service-a/price
+
 curl http://localhost/service-b/health
 
 
